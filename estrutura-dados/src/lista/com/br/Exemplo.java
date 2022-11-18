@@ -17,6 +17,8 @@ public class Exemplo {
         System.out.println("2 - Remove Elemento");
         System.out.println("3 - Lista Elementos");
         System.out.println("4 - Pesquisar Elementos");
+        System.out.println("5 - Criar uma nova lista");
+        System.out.println("6 - Listar a nova lista");
         System.out.println("0 Sair");
         
         escolha = tipo.nextInt();
@@ -36,6 +38,9 @@ public class Exemplo {
                     System.out.println("Insira o valor a ser buscado: ");
                     valor = tipo.nextInt();
                     lista.buscar(valor);
+                }
+                case 5 -> {
+                    lista.transferir();
                 }
                 default -> {
                 }

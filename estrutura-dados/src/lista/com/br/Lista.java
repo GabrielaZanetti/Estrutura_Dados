@@ -3,17 +3,34 @@ package lista.com.br;
 public class Lista {
     
     private Node inicio;
+    private Node inicioNew;
     
     // Cria uma lista vazia
+    // Cria uma nova lista vazia
     public Lista(){
         this.inicio = null;
+        this.inicioNew = null;
+    }
+    
+    public void transferir() {
+        if (inicio == null){
+            System.out.println("Lista vazia!!!!");
+        }
+        else {
+            Node aux = inicio;
+            Node nova = new Node();
+            while (aux != null){
+                nova.setElemento(aux.getElemento());
+                nova.setProximo(null);
+
+            }
+        }
     }
     
     public void buscar(int elemento){
         if (inicio == null){
             System.out.println("Lista vazia!!!!");
-        }
-        else {
+        } else {
             Node aux = inicio;
             int quant = 0;
             while (aux != null){
@@ -57,6 +74,19 @@ public class Lista {
         }
         else {
             Node aux = inicio;
+            while (aux != null){
+                System.out.println("Encontrado "+aux.getElemento());
+                aux = aux.getProximo();
+            }
+        }
+    }
+    
+    public void listarNova(){        
+        if (inicioNew == null){
+            System.out.println("Lista vazia!!!!");
+        }
+        else {
+            Node aux = inicioNew;
             while (aux != null){
                 System.out.println("Encontrado "+aux.getElemento());
                 aux = aux.getProximo();
