@@ -1,21 +1,16 @@
-# Estrutura_Dados
+# Avaliacao final
 
-> INTEIRO
+> 1°
 ```
-Representa valores numéricos negativo ou positivo sem casa decimal, ou seja, valores inteiros
-```
-
-> REAL
-```
-Representa valores numéricos negativo ou positivo com casa decimal, ou seja, valores reais ou também chamados de ponto flutuante;
+Tendo por base os arquivos e exercícios feitos em aula crie um algoritmo em java que solicite a leitura de 10 números inteiros e armazene em um vetor. Depois ordene este vetor em forma DECRESCENTE, listando em tela os valores ordenados;
 ```
 
-> LÓGICO
+> 2°
 ```
-Representa valores booleanos, assumindo apenas dois estados, VERDADEIRO ou FALSO (aceita apenas 0 ou 1);
+Considere uma pilha com 5 posições. Utilizando os arquivos e exercícios feito em  aula, faça um programa, em java, que solicite ao usuário 5 números inteiros e armazene nesta pilha, logo após crie uma segunda pilha de forma que os valores da segunda pilha fique com a posição invertida;
 ```
 
-> CARACTER
+> 3°
 ```
-Representa uma sequência de um ou mais caracteres, representados entre " " (aspas duplas).
+Solicite 10 números inteiros e empilhe, sequencialmente, em uma pilha Crie 2 novas pilhas. Finalmente, desempilha todos os elementos da pilha inicial e, caso for par empilh em uma das pilhas nova e, caso for ímpar empilhe na outra
 ```
