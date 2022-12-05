@@ -5,52 +5,82 @@ import java.util.Scanner;
 public class ExemploArvore {
 
     public static void main(String args[]) {
+        Arvore arvore = new Arvore();
         Scanner input = new Scanner(System.in);
-
-        // cria a arvore com o elemento inicial
-//        Arvore arvore = new Arvore(new Elemento(5));
-
-        // Insere elemento na árvore
-//        arvore.inserir(new Elemento(1));
-        
-        int[] num = new int[2];
+        //  Criando um vetor com 10 pisicoes
+        int[] num = new int[5];
         int quant = num.length;
         
+        System.out.println("Criar uma arvore");
+        
+        // inserindo os valores no vetor ao pedir por meio do teclado
         for (int i = 0; i < quant; i++) {
-//            System.out.println(num[i]);
             System.out.println("Informe o numero " + (i+1));
             int value = input.nextInt();
             num[i] = value;
         }
         
-        bubbleSort(num, quant);
-       
-//        for (int i = 0; i < num.length; i++) {
-//            System.out.println(num[i]);
-//        }
-
-        // Realiza a busca
-//        System.out.println("O elemento 1" + (arvore.busca(1) ? " foi encontrado" : "nao foi encontrado"));
-    }
-     public static void bubbleSort(int[] x, int quant) {
-        int n, i, aux;
-        /*
-                Cria-se dois lacos de repeticao onde possuem a mesma funcao
-                assim percorre o mesmo array verificando cada valor, dentro fo if
-                ele verifica se o valor da posicao X e maior que I, onde se for ele 
-                armazena no array e segue para o proximo
-         */
+        // ordenacao pelo metodo bubble sort
+        arvore.bubbleSort(num, quant);
         
-        for (n = 0; n < x.length; n++) {
-            for (i = 0; i < quant; i++) {
-                if (x[n] > x[i + 1]) {
-                    aux = x[n];
-                    x[n] = x[n + 1];
-                    x[n + 1] = aux;
+        //  Print do vetor ordenado
+        System.out.println("Vetor ordenado: ");
+        for (int i = 0; i < num.length; i++) {
+            System.out.println(num[i]);
+        }
+        
+        //  criacao da arvore binaria apartir do vetor inicial
+        arvore.inserir(new Elemento(num[num.length/2])); // pega o valor da metade do array
+        for (int i = 0; i < num.length; i++) {
+            arvore.inserir(new Elemento(num[i]));
+        }
+        
+        /*  Menu de opcoes  */
+        boolean menuAtivo = true;
+        
+        while(menuAtivo){
+            System.out.println("Informe uma opcao para efetuar na arvore");
+            System.out.println("1 - Inserir um novo item na arvore");
+            System.out.println("2 - Pesquisar um item na arvore");
+            System.out.println("3 - Remover um item da arvore");
+            System.out.println("4 - Visualizar a arvore");
+            System.out.println("5 - Finalizar a operacao");
+            int opcao = input.nextInt();
+            switch (opcao) {
+                case 1 -> {
+                    // Solicitacao de um valor para inserir na arvore
+                    System.out.println("Informe um numero para inserir na arvore");
+                    int inserirValue = input.nextInt();
+                    arvore.inserir(new Elemento(inserirValue));
+                    menuAtivo = true;
+                }
+                case 2 -> {
+                    // Solicitacao de um valor para busca na arvore
+                    System.out.println("Informe um numero para buscar na arvore");
+                    int valueBusca = input.nextInt();
+                    System.out.println("O elemento "+ valueBusca+" "+ (arvore.busca(valueBusca) ? "foi encontrado" : "nao foi encontrado"));
+                    menuAtivo = true;
+                }
+                case 3 -> {
+                    // Solicitacao de um valor para remover sa arvore
+                    System.out.println("Informe um numero para remover da arvore");
+                    int valueRemove = input.nextInt();
+                    arvore.remover(arvore, valueRemove);
+                    menuAtivo = true;
+                }
+                case 4 -> {
+                    /*  Visualizar a arvore     */
+                    System.out.println(arvore.visualiza(arvore));                        
+                    menuAtivo = true;
+                }
+                case 5 -> {
+                    menuAtivo = false;
+                }
+                default -> {
+                    menuAtivo = false;
                 }
             }
         }
     }
-
 
 }
